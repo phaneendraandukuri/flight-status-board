@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { number, string } from "prop-types";
 
 export const FlightRow = ({
@@ -18,6 +19,9 @@ export const FlightRow = ({
       <td>{destination}</td>
       <td>{departureTime}</td>
       <td>{status}</td>
+      <td>
+        <Link to={`/flight/${id}`}>View Details</Link>
+      </td>
     </tr>
   );
 };
