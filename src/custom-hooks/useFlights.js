@@ -1,23 +1,22 @@
 import { useState, useEffect } from "react";
+import { FLIGHTS_STATUS_API } from "../constants";
 
-export const useFlights = () => {
-  const [flights, setFlights] = useState([]);
+const useFetch = (endpoint) => {
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchFlights = async () => {
+    const fetchData = async () => {
       try {
-        const response = await fetch(
-          "https://flight-status-mock.core.travelopia.cloud/flights"
-        );
+        const response = await fetch(endpoint);
 
         if (!response.ok) {
           throw new Error(`Error: ${response.status} ${response.statusText}`);
         }
 
-        const data = await response.json();
-        setFlights(data);
+        const result = await response.json();
+        setData(result);
         setLoading(false);
       } catch (err) {
         setError(err);
@@ -25,8 +24,19 @@ export const useFlights = () => {
       }
     };
 
-    fetchFlights();
-  }, []);
+    fetchData();
+  }, [endpoint]);
 
+  return { data, loading, error };
+};
+
+export const useFlightById = (id) => {
+  const endpoint = `${FLIGHTS_STATUS_API}/${id}`;
+  const { data: flight, loading, error } = useFetch(endpoint);
+  return { flight, loading, error };
+};
+
+export const useFlights = () => {
+  const { data: flights, loading, error } = useFetch(FLIGHTS_STATUS_API);
   return { flights, loading, error };
 };

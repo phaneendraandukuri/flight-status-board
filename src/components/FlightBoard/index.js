@@ -1,19 +1,21 @@
-import { array } from "prop-types";
 import { FlightRow } from "../FlightRow";
+import { useFlights } from "../../custom-hooks/useFlights";
+import { BoardHeader } from "../BoardHeader";
 
-export const FlightBoard = ({ flights }) => {
+export const FlightBoard = () => {
+  const { flights, loading, error } = useFlights();
+
+  if (loading) {
+    return <div>Loading flights...</div>;
+  }
+
+  if (error) {
+    return <div>Error loading flights: {error.message}</div>;
+  }
+
   return (
     <table>
-      <thead>
-        <tr>
-          <th>Flight Number</th>
-          <th>Airline</th>
-          <th>Origin</th>
-          <th>Destination</th>
-          <th>Departure</th>
-          <th>Time</th>
-        </tr>
-      </thead>
+      <BoardHeader />
       <tbody>
         {flights.map((flight) => (
           <FlightRow key={flight.id} {...flight} />
@@ -21,8 +23,4 @@ export const FlightBoard = ({ flights }) => {
       </tbody>
     </table>
   );
-};
-
-FlightBoard.propTypes = {
-  flights: array,
 };
