@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { FLIGHTS_STATUS_API } from "../constants";
 import { useParams } from "react-router-dom";
 
-const useFetch = (endpoint) => {
+const useFetch = (endpoint, refreshInterval = null) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -25,8 +25,17 @@ const useFetch = (endpoint) => {
       }
     };
 
+    if (refreshInterval) {
+      const intervalId = setInterval(() => {
+        fetchData();
+      }, refreshInterval);
+
+      return () => clearInterval(intervalId);
+    }
+
     fetchData();
-  }, [endpoint]);
+    return () => {};
+  }, [endpoint, refreshInterval]);
 
   return { data, loading, error };
 };
@@ -38,5 +47,5 @@ export const useFlightById = () => {
 };
 
 export const useFlights = () => {
-  return useFetch(FLIGHTS_STATUS_API);
+  return useFetch(FLIGHTS_STATUS_API, 3000);
 };

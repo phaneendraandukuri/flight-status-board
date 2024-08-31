@@ -2,7 +2,7 @@ import { useFlights } from "../../custom-hooks/useFlights";
 import { BoardHeader, FlightRow } from "..";
 import withFlightData from "../../HOC/withFlightData";
 
-const FlightBoardBase = ({ data: flights }) => {
+const FlightBoardBase = ({ data: flights = [] }) => {
   return (
     <table>
       <BoardHeader />
