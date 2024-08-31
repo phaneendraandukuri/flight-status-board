@@ -1,9 +1,8 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useFlightById } from "../../custom-hooks/useFlights";
+import withFlightData from "../../HOC/withFlightData";
 
-export const FlightDetail = () => {
-  const { id } = useParams();
-  const { flight } = useFlightById(id);
+const FlightDetailBase = ({ data: flight }) => {
   return (
     <div>
       <h2>Flight Details for {flight.flightNumber}</h2>
@@ -16,3 +15,5 @@ export const FlightDetail = () => {
     </div>
   );
 };
+
+export const FlightDetail = withFlightData(FlightDetailBase, useFlightById);

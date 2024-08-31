@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FLIGHTS_STATUS_API } from "../constants";
+import { useParams } from "react-router-dom";
 
 const useFetch = (endpoint) => {
   const [data, setData] = useState([]);
@@ -30,13 +31,12 @@ const useFetch = (endpoint) => {
   return { data, loading, error };
 };
 
-export const useFlightById = (id) => {
+export const useFlightById = () => {
+  const { id } = useParams();
   const endpoint = `${FLIGHTS_STATUS_API}/${id}`;
-  const { data: flight, loading, error } = useFetch(endpoint);
-  return { flight, loading, error };
+  return useFetch(endpoint);
 };
 
 export const useFlights = () => {
-  const { data: flights, loading, error } = useFetch(FLIGHTS_STATUS_API);
-  return { flights, loading, error };
+  return useFetch(FLIGHTS_STATUS_API);
 };

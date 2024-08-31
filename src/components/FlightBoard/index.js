@@ -1,18 +1,8 @@
-import { FlightRow } from "../FlightRow";
 import { useFlights } from "../../custom-hooks/useFlights";
-import { BoardHeader } from "../BoardHeader";
+import { BoardHeader, FlightRow } from "..";
+import withFlightData from "../../HOC/withFlightData";
 
-export const FlightBoard = () => {
-  const { flights, loading, error } = useFlights();
-
-  if (loading) {
-    return <div>Loading flights...</div>;
-  }
-
-  if (error) {
-    return <div>Error loading flights: {error.message}</div>;
-  }
-
+const FlightBoardBase = ({ data: flights }) => {
   return (
     <table>
       <BoardHeader />
@@ -24,3 +14,5 @@ export const FlightBoard = () => {
     </table>
   );
 };
+
+export const FlightBoard = withFlightData(FlightBoardBase, useFlights);
