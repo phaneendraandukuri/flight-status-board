@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { number, string } from "prop-types";
 
+import { getFormattedTime } from "../../utils";
+
 export const FlightRow = ({
   id,
   flightNumber,
@@ -12,12 +14,11 @@ export const FlightRow = ({
 }) => {
   return (
     <tr>
-      <td>{id}</td>
       <td>{flightNumber}</td>
       <td>{airline}</td>
       <td>{origin}</td>
       <td>{destination}</td>
-      <td>{departureTime}</td>
+      <td>{getFormattedTime(departureTime)}</td>
       <td>{status}</td>
       <td>
         <Link to={`/flight/${id}`}>View Details</Link>

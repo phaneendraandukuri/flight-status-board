@@ -6,8 +6,9 @@ export const BoardHeader = () => {
         <th>Airline</th>
         <th>Origin</th>
         <th>Destination</th>
-        <th>Departure</th>
-        <th>Time</th>
+        <th>Departure Time</th>
+        <th>Status</th>
+        <th>Details</th>
       </tr>
     </thead>
   );

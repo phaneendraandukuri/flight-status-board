@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import { FlightBoard, FlightDetail } from "./components";
-import "./App.css";
 
 function App() {
   return (
