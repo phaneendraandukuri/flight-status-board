@@ -1,11 +1,12 @@
 import React from "react";
+import { Loader } from "../components";
 
 const withFlightData = (WrappedComponent, dataFetcher) => {
   return (props) => {
     const { data, loading, error } = dataFetcher();
 
     if (loading) {
-      return <div>Loading...</div>;
+      return <Loader />;
     }
 
     if (error) {
