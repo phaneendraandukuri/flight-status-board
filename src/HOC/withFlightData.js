@@ -10,7 +10,9 @@ const withFlightData = (WrappedComponent, dataFetcher) => {
 
     if (error) {
       return (
-        <ErrorBanner message={`Error loading flight data: ${error.message}`} />
+        <ErrorBanner
+          message={"⚠︎ Oops! unable to fetch the flights at the moment"}
+        />
       );
     }
 

@@ -1,6 +1,6 @@
 .error-banner {
-  background-color: #ae2e30;
-  color: white;
+  background-color: #f8d7da;
+  color: #721c24;
   padding: 16px;
   text-align: center;
   border-radius: 8px;
@@ -12,4 +12,12 @@
 
 .error-banner p {
   margin: 0;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .error-banner {
+    max-width: 750px;
+    margin: 20px auto;
+  }
 }

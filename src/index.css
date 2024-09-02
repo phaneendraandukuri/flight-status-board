@@ -1,4 +1,6 @@
 body {
   --primary-color: #001f3f;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
 }

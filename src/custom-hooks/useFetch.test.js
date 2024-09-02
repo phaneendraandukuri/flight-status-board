@@ -24,7 +24,7 @@ describe("useFetch", () => {
 
     expect(result.current.loading).toBe(true);
 
-    await waitForNextUpdate(); // wait for the state to update
+    await waitForNextUpdate();
 
     expect(result.current.data).toEqual(mockData);
     expect(result.current.loading).toBe(false);
@@ -40,7 +40,7 @@ describe("useFetch", () => {
 
     expect(result.current.loading).toBe(true);
 
-    await waitForNextUpdate(); // wait for the state to update
+    await waitForNextUpdate();
 
     expect(result.current.data).toEqual([]);
     expect(result.current.loading).toBe(false);
@@ -58,11 +58,10 @@ describe("useFetch", () => {
       useFetch("https://api.example.com/data", 1000)
     );
 
-    await waitForNextUpdate(); // Initial fetch
+    await waitForNextUpdate();
 
     expect(result.current.data).toEqual(mockData);
 
-    // Wait for refresh interval and check if data is updated
     jest.advanceTimersByTime(1000);
     await waitForNextUpdate();
 
@@ -78,7 +77,7 @@ describe("useFetch", () => {
 
     expect(result.current.loading).toBe(true);
 
-    await waitForNextUpdate(); // wait for the state to update
+    await waitForNextUpdate();
 
     expect(result.current.data).toEqual(mockData);
     expect(result.current.loading).toBe(false);
