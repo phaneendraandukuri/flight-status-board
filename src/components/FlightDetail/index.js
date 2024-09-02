@@ -5,7 +5,7 @@ import { getFormattedTime } from "../../utils";
 
 import "./flight-detail.css";
 
-const FlightDetailBase = ({ data: flight = {} }) => {
+const FlightDetailBase = ({ data: flight }) => {
   return (
     <div className="flight-detail-card">
       <h2 className="flight-detail-card__number">

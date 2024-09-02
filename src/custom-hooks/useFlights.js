@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { FLIGHTS_STATUS_API } from "../constants";
 import { useParams } from "react-router-dom";
 
-const useFetch = (endpoint, refreshInterval = null) => {
+export const useFetch = (endpoint, refreshInterval = null) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

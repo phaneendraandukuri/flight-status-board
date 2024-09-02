@@ -1,4 +1,3 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import { FlightBoard } from ".";
 import { useFlights } from "../../custom-hooks/useFlights";
