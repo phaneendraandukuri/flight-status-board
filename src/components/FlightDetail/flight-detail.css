@@ -1,22 +1,31 @@
-.flight-detail-card {
+.flight-detail {
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  max-width: 400px;
-  margin: 20px auto;
+  margin: 16px;
 }
 
-.flight-detail-card__number {
+.flight-detail__number {
   color: var(--primary-color);
   margin-bottom: 15px;
   text-align: center;
+}
+
+.flight-detail-card {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .flight-detail-card__detail {
   margin: 8px 0;
   color: #333;
   font-size: 16px;
+}
+
+.flight-detail-card__detail span {
+  font-weight: 600;
 }
 
 .flight-detail-card__link {
@@ -26,13 +35,20 @@
   margin: 20px auto 0;
   padding: 10px 15px;
   background-color: var(--primary-color);
-  opacity: 0.9;
+  opacity: 0.8;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 6px;
   text-align: center;
 }
 
 .flight-detail-card__link:hover {
   opacity: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .flight-detail {
+    margin: 20px auto;
+    max-width: 736px;
+  }
 }

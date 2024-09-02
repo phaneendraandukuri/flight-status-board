@@ -47,5 +47,5 @@ export const useFlightById = () => {
 };
 
 export const useFlights = () => {
-  return useFetch(FLIGHTS_STATUS_API, 3000);
+  return useFetch(FLIGHTS_STATUS_API, 5000);
 };

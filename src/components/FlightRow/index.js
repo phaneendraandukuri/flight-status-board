@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { number, string } from "prop-types";
 import { getFormattedTime } from "../../utils";
-
+import COLORS from "../../config/flight-status-colors";
 import "./flight-row.css";
 
 export const FlightRow = ({
@@ -22,7 +22,9 @@ export const FlightRow = ({
       <span className="flight-row__field">
         {getFormattedTime(departureTime)}
       </span>
-      <span className="flight-row__field">{status}</span>
+      <span className="flight-row__field" style={COLORS[status]}>
+        {status}
+      </span>
     </Link>
   );
 };
