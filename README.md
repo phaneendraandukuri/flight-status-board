@@ -14,7 +14,7 @@ The **Flight Status Board** is a web application that displays real-time flight 
 
 ## Tech Stack
 
-- **Frontend:** React 16, JavaScript, CSS
+- **Frontend:** React 18, JavaScript, CSS
 - **Routing:** React Router
 - **State Management:** React Hooks
 - **Testing:** Jest, React Testing Library
@@ -24,7 +24,7 @@ The **Flight Status Board** is a web application that displays real-time flight 
 
 Ensure you have the following installed on your local development environment:
 
-- **Node.js** (Version 16)
+- **Node.js** (Version 18)
 
 ## Installation
 
@@ -65,7 +65,7 @@ Additionally, This application is also hosted on web using netlify. You can visi
    npm test
    ```
 
-2. For testing custom hooks, ensure you are using React 16 and have installed the following dependencies:
+2. For testing custom hooks, ensure you are using React 18 and have installed the following dependencies:
 
    ```bash
    npm install @testing-library/react-hooks --save-dev
