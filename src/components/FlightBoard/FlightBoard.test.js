@@ -43,7 +43,7 @@ describe("FlightBoard Component", () => {
     render(<FlightBoard />);
 
     expect(
-      screen.getByText("Error loading flight data: Failed to fetch data")
+      screen.getByText("⚠︎ Oops! unable to fetch the flights at the moment")
     ).toBeInTheDocument();
   });
 

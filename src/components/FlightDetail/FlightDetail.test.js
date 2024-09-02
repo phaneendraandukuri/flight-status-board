@@ -40,18 +40,14 @@ describe("FlightDetail Component", () => {
     expect(
       screen.getByText(`Flight Details for ${flight.flightNumber}`)
     ).toBeInTheDocument();
-    expect(screen.getByText(`Airline: ${flight.airline}`)).toBeInTheDocument();
-    expect(screen.getByText(`Origin: ${flight.origin}`)).toBeInTheDocument();
+    expect(screen.getByText(`${flight.airline}`)).toBeInTheDocument();
+    expect(screen.getByText(`${flight.origin}`)).toBeInTheDocument();
+    expect(screen.getByText(`${flight.destination}`)).toBeInTheDocument();
     expect(
-      screen.getByText(`Destination: ${flight.destination}`)
+      screen.getByText(`${getFormattedTime(flight.departureTime)}`)
     ).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        `Departure Time: ${getFormattedTime(flight.departureTime)}`
-      )
-    ).toBeInTheDocument();
-    expect(screen.getByText(`Status: ${flight.status}`)).toBeInTheDocument();
-    expect(screen.getByText("Go back to All Flights")).toBeInTheDocument();
+    expect(screen.getByText(`${flight.status}`)).toBeInTheDocument();
+    expect(screen.getByText("Go back to all flights")).toBeInTheDocument();
   });
 
   test("shows loading state correctly", () => {
@@ -81,12 +77,12 @@ describe("FlightDetail Component", () => {
 
     expect(
       screen.getByText(
-        "Error: Error loading flight data: Failed to load flight data"
+        "Error: ⚠︎ Oops! unable to fetch the flights at the moment"
       )
     ).toBeInTheDocument();
   });
 
-  test("renders the 'Go back to All Flights' link with correct URL", () => {
+  test("renders the 'Go back to all flights' link with correct URL", () => {
     useFlightById.mockReturnValue({
       data: flight,
       loading: false,
@@ -99,7 +95,7 @@ describe("FlightDetail Component", () => {
       </Router>
     );
 
-    const link = screen.getByText("Go back to All Flights");
+    const link = screen.getByText("Go back to all flights");
     expect(link).toHaveAttribute("href", "/");
   });
 
@@ -138,9 +134,7 @@ describe("FlightDetail Component", () => {
     expect(screen.getByText("Airline:")).toBeInTheDocument();
     expect(screen.getByText("Origin:")).toBeInTheDocument();
     expect(screen.getByText("Destination:")).toBeInTheDocument();
-    expect(
-      screen.getByText("Departure Time: Invalid Date")
-    ).toBeInTheDocument();
+    expect(screen.getByText("Invalid Date")).toBeInTheDocument();
     expect(screen.getByText("Status:")).toBeInTheDocument();
   });
 
@@ -162,8 +156,6 @@ describe("FlightDetail Component", () => {
       </Router>
     );
 
-    expect(
-      screen.getByText("Departure Time: Invalid Date")
-    ).toBeInTheDocument();
+    expect(screen.getByText("Invalid Date")).toBeInTheDocument();
   });
 });
