@@ -12,7 +12,7 @@ const FlightDetailBase = ({ data: flight }) => {
       <p>Destination: {flight.destination}</p>
       <p>Departure Time: {getFormattedTime(flight.departureTime)}</p>
       <p>Status: {flight.status}</p>
-      <Link to={"/"}>Go back to homepage</Link>
+      <Link to={"/"}>Go back to All Flights</Link>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Loader } from "../components";
+import { ErrorBanner, Loader } from "../components";
 
 const withFlightData = (WrappedComponent, dataFetcher) => {
   return (props) => {
@@ -10,7 +10,9 @@ const withFlightData = (WrappedComponent, dataFetcher) => {
     }
 
     if (error) {
-      return <div>Error loading flight data: {error.message}</div>;
+      return (
+        <ErrorBanner message={`Error loading flight data: ${error.message}`} />
+      );
     }
 
     return <WrappedComponent {...props} data={data} />;

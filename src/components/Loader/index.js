@@ -13,7 +13,7 @@ export const Loader = ({ size = 36, color = "#5b0fff", speed = 1 }) => {
   return (
     <div>
       <div className="spinner" style={style}></div>
-      <div style={{ textAlign: "center" }}>Loading Flight</div>
+      <div style={{ textAlign: "center" }}>Loading Flights</div>
     </div>
   );
 };
