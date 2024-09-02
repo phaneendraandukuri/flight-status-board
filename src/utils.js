@@ -1,7 +1,10 @@
 import { format } from "date-fns";
 
 export const getFormattedTime = (timestamp) => {
+  if (!timestamp || isNaN(Date.parse(timestamp))) {
+    return "Invalid Date";
+  }
+
   const date = new Date(timestamp);
-  const formattedDateTime = format(date, "hh:mm a");
-  return formattedDateTime;
+  return format(date, "hh:mm a");
 };

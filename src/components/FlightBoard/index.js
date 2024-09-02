@@ -2,16 +2,18 @@ import { useFlights } from "../../custom-hooks/useFlights";
 import { BoardHeader, FlightRow } from "..";
 import withFlightData from "../../HOC/withFlightData";
 
+import "./flight-board.css";
+
 const FlightBoardBase = ({ data: flights = [] }) => {
   return (
-    <table>
+    <div className="flight-board">
       <BoardHeader />
-      <tbody>
+      <div className="flight-rows">
         {flights.map((flight) => (
           <FlightRow key={flight.id} {...flight} />
         ))}
-      </tbody>
-    </table>
+      </div>
+    </div>
   );
 };
 

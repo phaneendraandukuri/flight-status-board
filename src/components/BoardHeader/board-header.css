@@ -1,0 +1,15 @@
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  flex-wrap: wrap;
+}
+
+.board-header__field {
+  flex: 1;
+  text-align: center;
+  padding: 5px;
+}

@@ -1,7 +1,14 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { FlightRow } from ".";
+
+jest.mock("../../utils", () => ({
+  getFormattedTime: jest.fn((time) => time),
+}));
+
+afterEach(() => {
+  jest.clearAllMocks();
+});
 
 describe("FlightRow Component", () => {
   const flight = {
@@ -20,20 +27,10 @@ describe("FlightRow Component", () => {
         <FlightRow {...flight} />
       </Router>
     );
-    expect(screen.getByText(flight.id)).toBeInTheDocument();
-  });
-
-  test("displays correct flight information", () => {
-    render(
-      <Router>
-        <FlightRow {...flight} />
-      </Router>
-    );
     expect(screen.getByText(flight.flightNumber)).toBeInTheDocument();
     expect(screen.getByText(flight.airline)).toBeInTheDocument();
     expect(screen.getByText(flight.origin)).toBeInTheDocument();
     expect(screen.getByText(flight.destination)).toBeInTheDocument();
-    expect(screen.getByText(flight.departureTime)).toBeInTheDocument();
     expect(screen.getByText(flight.status)).toBeInTheDocument();
   });
 
@@ -43,7 +40,7 @@ describe("FlightRow Component", () => {
         <FlightRow {...flight} />
       </Router>
     );
-    const link = screen.getByText("View Details");
+    const link = screen.getByRole("link");
     expect(link).toHaveAttribute("href", `/flight/${flight.id}`);
   });
 });

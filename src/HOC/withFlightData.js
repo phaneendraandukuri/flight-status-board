@@ -1,4 +1,3 @@
-import React from "react";
 import { ErrorBanner, Loader } from "../components";
 
 const withFlightData = (WrappedComponent, dataFetcher) => {

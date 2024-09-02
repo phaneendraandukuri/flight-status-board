@@ -3,16 +3,26 @@ import { useFlightById } from "../../custom-hooks/useFlights";
 import withFlightData from "../../HOC/withFlightData";
 import { getFormattedTime } from "../../utils";
 
-const FlightDetailBase = ({ data: flight }) => {
+import "./flight-detail.css";
+
+const FlightDetailBase = ({ data: flight = {} }) => {
   return (
-    <div>
-      <h2>Flight Details for {flight.flightNumber}</h2>
-      <p>Airline: {flight.airline}</p>
-      <p>Origin: {flight.origin}</p>
-      <p>Destination: {flight.destination}</p>
-      <p>Departure Time: {getFormattedTime(flight.departureTime)}</p>
-      <p>Status: {flight.status}</p>
-      <Link to={"/"}>Go back to All Flights</Link>
+    <div className="flight-detail-card">
+      <h2 className="flight-detail-card__number">
+        Flight Details for {flight?.flightNumber}
+      </h2>
+      <p className="flight-detail-card__detail">Airline: {flight?.airline}</p>
+      <p className="flight-detail-card__detail">Origin: {flight?.origin}</p>
+      <p className="flight-detail-card__detail">
+        Destination: {flight?.destination}
+      </p>
+      <p className="flight-detail-card__detail">
+        Departure Time: {getFormattedTime(flight?.departureTime)}
+      </p>
+      <p className="flight-detail-card__detail">Status: {flight?.status}</p>
+      <Link to={"/"} className="flight-detail-card__link">
+        Go back to All Flights
+      </Link>
     </div>
   );
 };

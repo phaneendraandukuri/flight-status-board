@@ -1,0 +1,23 @@
+.flight-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: 5px 0;
+  text-decoration: none;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.flight-row:hover {
+  background-color: #f0f8ff;
+  color: #000;
+}
+
+.flight-row__field {
+  flex: 1;
+  padding: 5px;
+  text-align: center;
+}

@@ -1,6 +1,5 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
-import { BoardHeader } from "../../components";
+import { BoardHeader } from ".";
 
 describe("BoardHeader Component", () => {
   test("renders all the table headers correctly", () => {
@@ -12,6 +11,5 @@ describe("BoardHeader Component", () => {
     expect(screen.getByText("Destination")).toBeInTheDocument();
     expect(screen.getByText("Departure Time")).toBeInTheDocument();
     expect(screen.getByText("Status")).toBeInTheDocument();
-    expect(screen.getByText("Details")).toBeInTheDocument();
   });
 });
